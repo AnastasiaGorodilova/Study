@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        h1 {
+            font: 4em serif;
+        }
+
+        img {
+            max-height: 400px;
+            max-width: 400px;
+        }
+
+        .image {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        button {
+            background-color: black;
+            font: 2vw serif;
+            color: white;
+            height: 6vh;
+            width: 300px;
+            text-align: center;
+        }
+
+        button:hover {
+            background-color: rgb(68, 68, 68);
+        }
+
+        .button {
+            padding: 30px 0 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Моя Галерея</h1>
+    <div class="image">
+        <img
+            src="https://www.christies.com/img/LotImages/2010/CKS/2010_CKS_07906_0024_000(ivan_aivazovsky_shipwreck_at_dawn).jpg">
+        <img src="https://gorenka.org/images/vystavka/ayvazovskiy/ayvazovskiy193.jpg">
+    </div>
+    <div class="button">
+        <button onclick="calculateTotalPrice()">Узнать стоимость</button>
+        <h2></h2>
+    </div>
+    <script>
+        function calculateTotalPrice(quantity = "2", price = "15000000") {
+            let totalPrice = quantity * price;
+            alert(' Стоимость покупки: ' + totalPrice.toLocaleString('ru-RU') + ' рублей');
+        }
+
+    </script>
+</body>
+
+</html>
