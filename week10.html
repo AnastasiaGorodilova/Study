@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        h1 {
+            font: 4em serif;
+        }
+
+        img {
+            height: 400px;
+        }
+
+        button {
+            background-color: black;
+            font: 2vw serif;
+            color: white;
+            height: 6vh;
+            width: 15vw;
+            text-align: center;
+        }
+
+        button:hover {
+            background-color: rgb(68, 68, 68);
+        }
+
+        .button {
+            padding: 30px 0 0;
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Cats</h1>
+    <img id="image"
+        src="https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663117689_16-mykaleidoscope-ru-p-kotiki-veselie-pinterest-16.jpg">
+    <div class="button">
+        <button onclick="prevImage()">Previous</button>
+        <button onclick="nextImage()">Next</button>
+    </div>
+    <script>
+
+
+        function nextImage() {
+            image.src = 'https://legkovmeste.ru/wp-content/uploads/2019/02/post_5a99c387f3ea4.jpg';
+        }
+        function prevImage() {
+            image.src = 'https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663117689_16-mykaleidoscope-ru-p-kotiki-veselie-pinterest-16.jpg';
+        }
+
+    </script>
+</body>
+
+</html>
