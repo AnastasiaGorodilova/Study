@@ -1,0 +1,90 @@
+body {
+    font-family: 'Comfortaa', sans-serif;
+    background-color: #eb99ff;
+    /* Фиолетово-розовый фон */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+h1 {
+    color: #ffcc9a;
+    /* Бежевый цвет для заголовка */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#taskContainer {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    /* Белый фон контейнера */
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    /* Тень контейнера */
+}
+
+#taskInput {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+#addTaskButton {
+    padding: 10px 20px;
+    background-color: #7548c9;
+    /* Розовый цвет кнопки */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Comfortaa', sans-serif;
+    margin-left: 10px;
+}
+
+button#addTaskButton:hover {
+    background-color: #a08ac9;
+}
+
+#taskList {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    /* Белый фон задачи */
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    /* Тень задачи */
+}
+
+.task-checkbox {
+    margin-right: 10px;
+}
+
+#addTaskButton::before {
+    content: "🐾";
+    margin-right: 5px;
+}
+
+#addTaskButton::after {
+    content: "🐾";
+    margin-left: 5px;
+}
+
+
+.completed {
+    text-decoration: line-through;
+    color: #888;
+}
