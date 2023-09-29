@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>До дня рождения</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #error {
+            color: red;
+        }
+
+        #result {
+            color: #333;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <body>
+        <h1>Дни до дня рождения</h1>
+        <p>Введите дату вашего дня рождения:</p>
+        <input type="date" id="birthdayInput">
+        <button onclick="calculateDaysUntilBirthday()">Рассчитать</button>
+        <p id="error"></p>
+        <p id="result"></p>
+
+        <script>
+            function calculateDaysUntilBirthday() {
+                const birthdayInput = new Date(document.getElementById("birthdayInput").value);
+                const error = document.getElementById("error");
+                const result = document.getElementById("result");
+
+                if (!birthdayInput || isNaN(birthdayInput)) {
+                    error.textContent = "Пожалуйста, введите корректную дату рождения";
+                    result.textContent = "";
+                    return;
+                }
+
+                const currentDate = new Date();
+                const nextBirthday = new Date(currentDate.getFullYear(), birthdayInput.getMonth(), birthdayInput.getDate());
+
+                if (nextBirthday < currentDate) {
+                    nextBirthday.setFullYear(currentDate.getFullYear() + 1);
+                }
+                const UntilBirthday = Math.floor((nextBirthday - currentDate) / (1000 * 60 * 60 * 24));
+
+                let dayWord;
+                if (UntilBirthday % 10 === 1 && UntilBirthday % 100 !== 11) {
+                    dayWord = "день";
+                } else {
+                    if (
+                        (UntilBirthday % 10 >= 2 && UntilBirthday % 10 <= 4) &&
+                        (UntilBirthday % 100 < 10 || UntilBirthday % 100 >= 20)
+                    ) {
+                        dayWord = "дня";
+                    }
+                    else {
+                        dayWord = "дней";
+                    }
+                }
+                error.textContent = "";
+                result.textContent = `До вашего дня рождения осталось ${UntilBirthday} ${dayWord}`;
+
+                if (currentDate.getDate() === nextBirthday.getDate()) {
+                    result.textContent = 'С Днем Рождения!';
+                }
+
+            }
+        </script>
+    </body>
+</body>
+
+</html>
