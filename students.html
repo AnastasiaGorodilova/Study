@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анализ оценок студентов</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .result {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Анализ оценок студентов</h1>
+    <div class="container">
+        <div id="results" class="results">
+        </div>
+    </div>
+    <script>
+        const grades = [];
+        for (let i = 0; i < 12; i++) {
+            const randomGrade = Math.floor(Math.random() * 100) + 1;
+            grades.push(randomGrade);
+        }
+        console.log(grades);
+        const averageGrade = grades.reduce((acc, grade) => acc + grade, 0) / grades.length;
+
+        const maxGrade = Math.max(...grades);
+
+        const minGrade = Math.min(...grades);
+
+        const positiveGrades = grades.filter(grade => grade >= 60);
+        const countPositiveGrades = positiveGrades.length;
+
+        const negativeGrades = grades.filter(grade => grade < 60);
+        const countNegativeGrades = negativeGrades.length;
+
+        const letterGrades = grades.map(grade => {
+            if (grade >= 80) return 'A';
+            if (grade >= 60) return 'B';
+            if (grade >= 40) return 'C';
+            if (grade >= 20) return 'D';
+            return 'E';
+        });
+
+        const resultsDiv = document.getElementById('results');
+        resultsDiv.innerHTML = `
+            <p>Средний балл студентов: ${averageGrade.toFixed(2)}</p>
+            <p>Максимальный балл: ${maxGrade}</p>
+            <p>Минимальный балл: ${minGrade}</p>
+            <p>Количество студентов с положительными оценками: ${countPositiveGrades}</p>
+            <p>Количество студентов с отрицательными оценками: ${countNegativeGrades}</p>
+            <p>Буквенные оценки: ${letterGrades.join(', ')}</p>
+        `;
+    </script>
+</body>
+
+</html>
