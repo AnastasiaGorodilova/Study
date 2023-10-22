@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Температура в разных городах</title>
+</head>
+
+<body>
+    <h1>Температура в разных городах</h1>
+
+    <p id="cityList"></p>
+
+    <h2>Максимальная температура: <span id="maxTemp"></span></h2>
+    <h2>Минимальная температура: <span id="minTemp"></span></h2>
+
+
+    <script>
+        let cities = ["Москва", "Санкт-Петербург", "Нью-Йорк", "Токио"];
+        let temperatures = [];
+
+        for (var i = 0; i < cities.length; i++) {
+            var temperature = Number(prompt("Введите температуру для города " + cities[i] + ":", ''));
+            temperatures.push(temperature);
+        }
+
+        let cityList = document.getElementById("cityList");
+
+        for (var i = 0; i < cities.length; i++) {
+            var listItem = document.createElement("p");
+            listItem.textContent = "Температура в городе " + cities[i] + ": " + temperatures[i] + "°C";
+            cityList.appendChild(listItem);
+        }
+
+        let maxTemperature = Math.max(...temperatures);
+        let minTemperature = Math.min(...temperatures);
+
+        document.getElementById("maxTemp").textContent = maxTemperature + "°C";
+        document.getElementById("minTemp").textContent = minTemperature + "°C";
+    </script>
+</body>
+
+</html>
